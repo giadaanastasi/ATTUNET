@@ -29,6 +29,7 @@ if torch.cuda.is_available():
 else:
   print("No available GPUs")
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 images_path = "path\to\your\images"
 masks_path = "path\to\your\masks"
@@ -42,7 +43,8 @@ results = pd.DataFrame(columns=columns)
 num_total = len(image_files)
 assert len(image_files) == len(mask_files), "Image and mask counts do not match!"
 
-model = 
+model = AttentionUNet().to(device)
+model.load_state_dict(torch.load(os.path.join(data_dir,'Unet1_round_'+str(round)+'.pth')))
 
 transform = transforms.Compose([
     #transforms.Resize((128, 128)),  # Adjust size as needed
