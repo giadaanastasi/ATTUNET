@@ -13,5 +13,5 @@ Inference can be run from console by calling:
 python att_unet_dbt_inference.py test_images models prediction
 
 ## Trained models:
-The model structure can be found in *model.py*.
+The model structure can be found in *model_structure.py*.
 Model weights can be found in the *models* folder.
